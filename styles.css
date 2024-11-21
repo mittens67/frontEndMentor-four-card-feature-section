@@ -1,0 +1,166 @@
+/* Variables */
+:root {
+  --primary-red: hsl(0, 78%, 62%);
+  --primary-cyan: hsl(180, 62%, 55%);
+  --primary-orange: hsl(34, 97%, 64%);
+  --primary-blue: hsl(212, 86%, 64%);
+  --neutral-very-dark-blue: hsl(234, 12%, 34%);
+  --neutral-grayish-blue: hsl(229, 6%, 66%);
+  --neutral-grayish-blue-2: hsla(229, 6%, 66%, 50%);
+  --neutral-very-light-gray: hsl(0, 0%, 98%);
+}
+
+/* Reset and base styles */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  color: var(--neutral-very-dark-blue);
+  background-color: var(--neutral-very-light-gray);
+}
+
+/* Layout styles */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8rem;
+  padding: 5rem;
+  min-height: 100vh;
+}
+
+/* Titles */
+.titles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titles__subTitle {
+  font-size: 3.5rem;
+  font-weight: 200;
+}
+
+.titles > h1 {
+  font-size: 3.5rem;
+  font-weight: 600;
+}
+
+.titles__subtext {
+  color: var(--neutral-grayish-blue);
+  width: 60%;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+/* Cards */
+.cards__container {
+  display: flex;
+  gap: 3rem;
+}
+
+.cards__column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 22rem;
+  width: 34rem;
+  padding: 3rem;
+  border-radius: 0.5rem;
+  box-shadow: 0.2rem 0.5rem 2rem var(--neutral-grayish-blue-2);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0.5rem;
+  display: block;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.card__supervisor.card::before {
+  background-color: var(--primary-cyan);
+}
+.card__team.card::before {
+  background-color: var(--primary-red);
+}
+.card__karma.card::before {
+  background-color: var(--primary-orange);
+}
+.card__calculator.card::before {
+  background-color: var(--primary-blue);
+}
+
+.card > h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--neutral-very-dark-blue);
+}
+
+.card > p {
+  font-size: 1.2rem;
+  color: var(--neutral-grayish-blue);
+  width: 90%;
+}
+
+.card > img {
+  position: absolute;
+  bottom: 3rem;
+  right: 3rem;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+  .cards__container {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  main {
+    padding: 2rem;
+  }
+
+  .titles__subTitle,
+  .titles > h1 {
+    font-size: 2.4rem;
+  }
+
+  .titles__subtext {
+    width: 100%;
+    font-size: 1.6rem;
+  }
+
+  .card {
+    height: 20rem;
+    width: 32rem;
+  }
+
+  .card > h2 {
+    font-size: 1.8rem;
+  }
+}
